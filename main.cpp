@@ -28,7 +28,7 @@ const int SIM_HEIGHT = 500;
 const int SUBJECT_RADIUS = 2;
 
 int main() {
-    corsim::Simulation s(SIM_WIDTH,SIM_HEIGHT,std::make_unique<corsim::HTMLCanvas>(30,150,SIM_WIDTH,SIM_HEIGHT),
+    corsim::Simulation s(SIM_WIDTH, SIM_HEIGHT, std::make_unique<corsim::HTMLCanvas>(30, 150, SIM_WIDTH, SIM_HEIGHT),
         std::make_unique<corsim::ChartJSHandler>());
 
     //Code to randomly generate certain numbers, which is done by using certain distributions
@@ -39,12 +39,12 @@ int main() {
     std::uniform_real_distribution<double> dist_dx(-1.0, 1.0);
     std::uniform_real_distribution<double> dist_dy(-1.0, 1.0);
 
-    for (int i = 0; i<SUBJECT_COUNT; ++i)
+    for (int i = 0; i < SUBJECT_COUNT; ++i)
     {
         double x = dist_w(mt); //Randomly generate x position
         double y = dist_h(mt); //Randomly generate y position
         
-        corsim::Subject su(x,y,SUBJECT_RADIUS,false);
+        corsim::Subject su(x, y, SUBJECT_RADIUS, false);
 
         su.set_dx(dist_dx(mt));
         su.set_dy(dist_dy(mt));

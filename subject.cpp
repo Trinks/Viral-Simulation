@@ -93,4 +93,14 @@ double Subject::speed()
     return sqrt(_dx * _dx + _dy * _dy);
 }
 
+void Subject::setLock(bool lock)
+{
+    this->_locked = lock;
+}
+
+bool Subject::getLock()
+{
+    return this->_locked;
+}
+
 }

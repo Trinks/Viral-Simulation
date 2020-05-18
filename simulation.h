@@ -22,6 +22,8 @@
 #include "canvas.h"
 #include "statistics_handler.h"
 
+#include "Movement.h"
+
 namespace corsim
 {
 

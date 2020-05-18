@@ -74,19 +74,13 @@ void Simulation::tick()
         }
     }
 
-    int numberInfected = 0;
+    Default defaultMovement;
+    Lockdown lockdownMovement;
 
-    for(Subject& s : _subjects)
-    {
-        s.set_x(s.x() + s.dx() * dt);
-        s.set_y(s.y() + s.dy() * dt);
-
-        if(s.infected())
-        {
-            numberInfected++;
-        }
-    }
-
+    // Gelieve de gene uit commenten die niet gebruikt wordt.
+    //int numberInfected = defaultMovement.move(dt, _subjects);
+    int numberInfected = lockdownMovement.move(dt, _subjects);
+    
     if(counter % 30 == 0)
     {
         _sh.get()->communicate_number_infected(counter/30,numberInfected);
