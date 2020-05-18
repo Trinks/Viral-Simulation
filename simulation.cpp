@@ -78,8 +78,8 @@ void Simulation::tick()
     Lockdown lockdownMovement;
 
     // Gelieve de gene uit commenten die niet gebruikt wordt.
-    //int numberInfected = defaultMovement.move(dt, _subjects);
-    int numberInfected = lockdownMovement.move(dt, _subjects);
+    int numberInfected = defaultMovement.move(dt, _subjects);
+    //int numberInfected = lockdownMovement.move(dt, _subjects);
     
     if(counter % 30 == 0)
     {
@@ -105,6 +105,10 @@ void Simulation::draw_to_canvas()
         if(s.infected())
         {
             c = RED;
+        }
+        if(s.immune())
+        {
+            c = GREEN;
         }
 
         _canvas.get()->draw_ellipse(s.x(), s.y(), s.radius(), c);

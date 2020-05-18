@@ -103,4 +103,25 @@ bool Subject::getLock()
     return this->_locked;
 }
 
+int Subject::immune()
+{
+    return this->_immune;
+}
+
+void Subject::addInfectionDay()
+{
+    this->_daysInfected++;
+}
+
+int Subject::daysInfected()
+{
+    return _daysInfected;
+}
+
+void Subject::giveMedicine()
+{
+    this->_infected = false;
+    this->_immune = true;
+    this->_daysInfected = 0;
+}
 }
